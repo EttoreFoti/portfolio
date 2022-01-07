@@ -69,7 +69,7 @@ const userData = {
     },
   ],
   resumeUrl:
-    "https://drive.google.com/file/d/1xmE3BOmgM7TAOOgVp36xQIQvYDntDYoo/view?usp=sharing",
+    "https://www.dropbox.com/s/3905s5ok0h8s05j/Ettore%20Foti%20CV.pdf?dl=0",
   socialLinks: {
     instagram: "https://www.instagram.com/ettorefoti/",
     twitter: "https://twitter.com/",
