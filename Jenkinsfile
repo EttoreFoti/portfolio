@@ -17,7 +17,7 @@ node {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
-        app = docker.build("ettorefoti/simple-portfolio:latest")
+        app = docker.build("ettorefoti/simple-portfolio")
     }
 /*
 *    stage('Test image') {
@@ -33,7 +33,7 @@ node {
          * Second, the 'latest' tag.
          * Pushing multiple tags is cheap, as all the layers are reused. */
         docker.withRegistry('https://hub.docker.com', '7edd585b-7ee7-4a07-aa77-96d95e2c85e9') {
-            app.build("ettorefoti/simple-portfolio")
+            app.push("latest")
         }
     }
 }
