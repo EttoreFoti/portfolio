@@ -40,6 +40,6 @@ node {
 *        script {
 *          kubernetesDeploy(configs: "portfolio-deployment.yaml", kubeconfigId: "kubeconfigid")
 *        }
-*/    }
+	}*/    
 }
 
