@@ -1,76 +1,29 @@
-apiVersion: v1
-items:
-- apiVersion: apps/v1
-  kind: Deployment
-  metadata:
-    annotations:
-      cert-manager.io/cluster-issuer: letsencrypt-production
-      deployment.kubernetes.io/revision: "2"
-      kubectl.kubernetes.io/last-applied-configuration: |
-        {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{},"creationTimestamp":null,"labels":{"app":"portfolio"},"name":"portfolio","namespace":"portfolio"},"spec":{"replicas":2,"selector":{"matchLabels":{"app":"portfolio"}},"strategy":{},"template":{"metadata":{"creationTimestamp":null,"labels":{"app":"portfolio"}},"spec":{"containers":[{"image":"docker.io/ettorefoti/simple-portfolio:latest","name":"simple-portfolio","ports":[{"containerPort":3000}],"resources":{}}],"imagePullSecrets":[{"name":"myregistrykey"}]}}},"status":{}}
-    creationTimestamp: "2022-01-05T15:57:41Z"
-    generation: 3
-    labels:
-      app: portfolio
-    name: portfolio
-    namespace: portfolio
-    resourceVersion: "529941"
-    uid: 5ba2cc4c-e0ae-4bff-84eb-b9b6aba5c607
-  spec:
-    progressDeadlineSeconds: 600
-    replicas: 2
-    revisionHistoryLimit: 10
-    selector:
-      matchLabels:
-        app: portfolio
-    strategy:
-      rollingUpdate:
-        maxSurge: 25%
-        maxUnavailable: 25%
-      type: RollingUpdate
-    template:
-      metadata:
-        creationTimestamp: null
-        labels:
-          app: portfolio
-      spec:
-        containers:
-        - image: docker.io/ettorefoti/simple-portfolio:latest
-          imagePullPolicy: Always
-          name: simple-portfolio
-          ports:
-          - containerPort: 3000
-            protocol: TCP
-          resources: {}
-          terminationMessagePath: /dev/termination-log
-          terminationMessagePolicy: File
-        dnsPolicy: ClusterFirst
-        imagePullSecrets:
-        - name: myregistrykey
-        restartPolicy: Always
-        schedulerName: default-scheduler
-        securityContext: {}
-        terminationGracePeriodSeconds: 30
-  status:
-    availableReplicas: 2
-    conditions:
-    - lastTransitionTime: "2022-01-05T15:57:41Z"
-      lastUpdateTime: "2022-01-05T16:09:34Z"
-      message: ReplicaSet "portfolio-7ddb5fc4c4" has successfully progressed.
-      reason: NewReplicaSetAvailable
-      status: "True"
-      type: Progressing
-    - lastTransitionTime: "2022-01-08T01:31:38Z"
-      lastUpdateTime: "2022-01-08T01:31:38Z"
-      message: Deployment has minimum availability.
-      reason: MinimumReplicasAvailable
-      status: "True"
-      type: Available
-    observedGeneration: 3
-    readyReplicas: 2
-    replicas: 2
-    updatedReplicas: 2
-kind: List
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  resourceVersion: ""
-  selfLink: ""
+  namespace: portfolio
+  creationTimestamp: null
+  labels:
+    app: portfolio
+  name: portfolio
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: portfolio
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: portfolio
+    spec:
+      containers:
+      - image: docker.io/ettorefoti/simple-portfolio:latest
+        name: simple-portfolio
+        resources: {}
+        ports:
+        - containerPort: 3000
+      imagePullSecrets:
+      - name: myregistrykey
+status: {}
