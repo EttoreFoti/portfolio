@@ -38,7 +38,7 @@ node {
     }
     stage('Deploy App') {
         script {
-          kubernetesDeploy(configs: "portfolio-deployment.yaml", kubeconfigId: "kubernetes")
+          kubernetesDeploy(configs: "portfolio-deployment.yaml", kubeconfigId: "kubeconfigid")
         }
     }
 }
