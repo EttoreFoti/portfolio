@@ -36,10 +36,10 @@ node {
             app.push("latest")
         }
     }
-    stage('Deploy App') {
-        script {
-          kubernetesDeploy(configs: "portfolio-deployment.yaml", kubeconfigId: "kubeconfigid")
-        }
-    }
+/*    stage('Deploy App') {
+*        script {
+*          kubernetesDeploy(configs: "portfolio-deployment.yaml", kubeconfigId: "kubeconfigid")
+*        }
+*    }
 }
 
